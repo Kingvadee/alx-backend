@@ -3,4 +3,4 @@ import math
 from typing import List
 
 
-class Server: 
+class: 
