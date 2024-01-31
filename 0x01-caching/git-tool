@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo "Do you want to execute a file with chmod u+x? (y/n)"
+read execute_choice
+
+if [ "$execute_choice" == "y" ]; then
+    echo "Enter the name of the file to execute:"
+    read file_name
+    chmod u+x "$file_name"
+    ./"$file_name"
+else
+    echo "Do you want to add a file to git? (y/n)"
+    read git_choice
+
+    if [ "$git_choice" == "y" ]; then
+        echo "Enter the file to add:"
+        read add_file
+        echo "Enter the commit message:"
+        read commit_message
+        git add "$add_file"
+        git commit -m "$commit_message"
+        git push
+    else
+        echo "No action selected. Exiting."
+    fi
+fi
+
